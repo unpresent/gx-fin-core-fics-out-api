@@ -9,7 +9,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.gx.fin.core.dris.out.InstrumentType;
+import ru.gx.fin.common.dris.out.InstrumentType;
 
 import java.time.LocalDate;
 import java.util.UUID;

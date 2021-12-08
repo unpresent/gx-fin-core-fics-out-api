@@ -9,8 +9,8 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.gx.data.AbstractDataObject;
-import ru.gx.fin.core.dris.out.Provider;
+import ru.gx.core.data.AbstractDataObject;
+import ru.gx.fin.common.dris.out.Provider;
 
 import java.time.LocalDate;
 

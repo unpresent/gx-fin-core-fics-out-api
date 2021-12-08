@@ -8,8 +8,8 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.gx.data.AbstractDataObject;
-import ru.gx.fin.core.dris.out.InstrumentType;
+import ru.gx.core.data.AbstractDataObject;
+import ru.gx.fin.common.dris.out.InstrumentType;
 
 import java.util.ArrayList;
 import java.util.List;

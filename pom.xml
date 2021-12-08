@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.gx.fin.core</groupId>
-    <artifactId>gx-fin-core-fics-out-api</artifactId>
+    <groupId>ru.gx.fin.common</groupId>
+    <artifactId>gx-fin-fics-out-api</artifactId>
     <packaging>jar</packaging>
     <version>1.2</version>
 
@@ -15,9 +15,9 @@
         <maven.compiler.target>17</maven.compiler.target>
 
         <gx-starter.version>1.2</gx-starter.version>
-        <gx-fin-core-dris-out-api.version>1.2</gx-fin-core-dris-out-api.version>
+        <gx-fin-dris-out-api.version>1.2</gx-fin-dris-out-api.version>
 
-        <org.springframework.boot.version>2.5.5</org.springframework.boot.version>
+        <org.springframework.boot.version>2.6.0</org.springframework.boot.version>
         <org.springframework.kafka.version>2.7.0</org.springframework.kafka.version>
         <org.testcontainers.version>1.16.2</org.testcontainers.version>
 
@@ -55,14 +55,20 @@
         </dependency>
 
         <dependency>
-            <groupId>ru.gx</groupId>
+            <groupId>ru.gx.core</groupId>
             <artifactId>gx-starter</artifactId>
             <version>${gx-starter.version}</version>
         </dependency>
         <dependency>
-            <groupId>ru.gx.fin.core</groupId>
-            <artifactId>gx-fin-core-dris-out-api</artifactId>
-            <version>${gx-fin-core-dris-out-api.version}</version>
+            <groupId>ru.gx.fin.common</groupId>
+            <artifactId>gx-fin-dris-out-api</artifactId>
+            <version>${gx-fin-dris-out-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Test dependencies -->
