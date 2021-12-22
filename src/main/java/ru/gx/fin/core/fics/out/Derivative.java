@@ -1,7 +1,6 @@
 package ru.gx.fin.core.fics.out;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,18 +26,21 @@ public class Derivative extends AbstractInstrument {
     /**
      * Базовый инструмент (на который этот дериватив)
      */
-    @JsonIdentityReference(alwaysAsId = true)
-    private final AbstractInstrument baseInstrument;
+    // @JsonIdentityReference(alwaysAsId = true)
+    private final String baseInstrument;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Nullable
     private final LocalDate expireDate;
 
+    @JsonCreator
     public Derivative(
-            @NotNull final UUID guid,
-            @NotNull final InstrumentType type,
-            @Nullable final String internalShortName,
-            @Nullable final String internalFullName,
-            AbstractInstrument baseInstrument, @Nullable final LocalDate expireDate
+            @JsonProperty("guid") @NotNull final UUID guid,
+            @JsonProperty("type") @NotNull final String type,
+            @JsonProperty("internalShortName") @Nullable final String internalShortName,
+            @JsonProperty("internalFullName") @Nullable final String internalFullName,
+            @JsonProperty("baseInstrument") @Nullable final String baseInstrument,
+            @JsonProperty("expireDate") @Nullable final LocalDate expireDate
     ) {
         super(guid, type, internalShortName, internalFullName);
         this.baseInstrument = baseInstrument;

@@ -1,7 +1,6 @@
 package ru.gx.fin.core.fics.out;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +23,9 @@ public class InstrumentCode extends AbstractDataObject {
     /**
      * Код провайдера, который идентифицирует инструмент, которому принадлежит данная запись
      */
-    @JsonIdentityReference(alwaysAsId = true)
+    // @JsonIdentityReference(alwaysAsId = true)
     @NotNull
-    private final Provider provider;
+    private final String provider;
 
     /**
      * Код инструмента (идентификатор) на данном провайдере для данного инструмента
@@ -48,22 +47,25 @@ public class InstrumentCode extends AbstractDataObject {
     /**
      * Дата, начиная с которой данный код начал действовать
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Nullable
     private final LocalDate dateFrom;
 
     /**
      * Дата, до (не включая) которой данный код действовал
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Nullable
     private final LocalDate dateTo;
 
+    @JsonCreator
     public InstrumentCode(
-            @NotNull final Provider provider,
-            @NotNull final String code,
-            @Nullable final String name,
-            short index,
-            @Nullable final LocalDate dateFrom,
-            @Nullable final LocalDate dateTo
+            @JsonProperty("provider") @NotNull final String provider,
+            @JsonProperty("code") @NotNull final String code,
+            @JsonProperty("name") @Nullable final String name,
+            @JsonProperty("index") short index,
+            @JsonProperty("dateFrom") @Nullable final LocalDate dateFrom,
+            @JsonProperty("dateTo") @Nullable final LocalDate dateTo
     ) {
         this.provider = provider;
         this.code = code;

@@ -1,6 +1,8 @@
 package ru.gx.fin.core.fics.out;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,12 +28,13 @@ public class Security extends AbstractInstrument {
     @Nullable
     private final String codeIsin;
 
+    @JsonCreator
     public Security(
-            @NotNull final UUID guid,
-            @NotNull final InstrumentType type,
-            @Nullable final String internalShortName,
-            @Nullable final String internalFullName,
-            @Nullable String codeIsin
+            @JsonProperty("guid") @NotNull final UUID guid,
+            @JsonProperty("type") @NotNull final String type,
+            @JsonProperty("internalShortName") @Nullable final String internalShortName,
+            @JsonProperty("internalFullName") @Nullable final String internalFullName,
+            @JsonProperty("codeIsin") @Nullable String codeIsin
     ) {
         super(guid, type, internalShortName, internalFullName);
         this.codeIsin = codeIsin;

@@ -1,7 +1,9 @@
 package ru.gx.fin.core.fics.out;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -9,7 +11,6 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.gx.core.data.AbstractDataObject;
-import ru.gx.fin.common.dris.out.InstrumentType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,9 @@ public abstract class AbstractInstrument extends AbstractDataObject {
     /**
      * Тип ФИ
      */
-    @JsonIdentityReference(alwaysAsId = true)
+    // @JsonIdentityReference(alwaysAsId = true)
     @NotNull
-    private final InstrumentType type;
+    private final String type;
 
     /**
      * Краткое внутреннее (в наших системах) наименование ФИ
@@ -50,7 +51,7 @@ public abstract class AbstractInstrument extends AbstractDataObject {
 
     protected AbstractInstrument(
             @NotNull final UUID guid,
-            @NotNull final InstrumentType type,
+            @NotNull final String type,
             @Nullable final String internalShortName,
             @Nullable final String internalFullName
     ) {

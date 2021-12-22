@@ -1,6 +1,8 @@
 package ru.gx.fin.core.fics.out;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -59,17 +61,18 @@ public class Currency extends AbstractInstrument {
     @Nullable
     private final Integer partsInOne;
 
+    @JsonCreator
     public Currency(
-            @NotNull final UUID guid,
-            @NotNull final InstrumentType type,
-            @Nullable final String internalShortName,
-            @Nullable final String internalFullName,
-            @NotNull final String codeAlpha2,
-            @NotNull final String codeAlpha3,
-            @Nullable final Short codeDec,
-            @Nullable final String sign,
-            @Nullable final String partsNames,
-            @Nullable final Integer partsInOne
+            @JsonProperty("guid") @NotNull final UUID guid,
+            @JsonProperty("type") @NotNull final String type,
+            @JsonProperty("internalShortName") @Nullable final String internalShortName,
+            @JsonProperty("internalFullName") @Nullable final String internalFullName,
+            @JsonProperty("codeAlpha2") @NotNull final String codeAlpha2,
+            @JsonProperty("codeAlpha3") @NotNull final String codeAlpha3,
+            @JsonProperty("codeDec") @Nullable final Short codeDec,
+            @JsonProperty("sign") @Nullable final String sign,
+            @JsonProperty("partsNames") @Nullable final String partsNames,
+            @JsonProperty("partsInOne") @Nullable final Integer partsInOne
     ) {
         super(guid, type, internalShortName, internalFullName);
         this.codeAlpha2 = codeAlpha2;
