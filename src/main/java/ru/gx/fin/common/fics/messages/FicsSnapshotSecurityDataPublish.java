@@ -1,19 +1,18 @@
-package ru.gx.fin.core.fics.messages;
+package ru.gx.fin.common.fics.messages;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.gx.core.messaging.*;
-import ru.gx.fin.core.fics.config.FicsMessageTypes;
-import ru.gx.fin.core.fics.out.Derivative;
-import ru.gx.fin.core.fics.out.Security;
+import ru.gx.fin.common.fics.config.FicsMessageTypes;
+import ru.gx.fin.common.fics.out.Security;
 
 import java.util.Arrays;
 
 @SuppressWarnings("unused")
-public class FicsSnapshotDerivativeDataPublish
-        extends AbstractDataPublish<FicsSnapshotDerivativeDataPublish.FicsSnapshotDerivativeDataPublishBody> {
+public class FicsSnapshotSecurityDataPublish
+        extends AbstractDataPublish<FicsSnapshotSecurityDataPublish.FicsSnapshotSecurityDataPublishBody> {
     public static final int V1 = 1;
     public static final int[] SUPPORTED_VERSIONS = {V1};
 
@@ -27,27 +26,27 @@ public class FicsSnapshotDerivativeDataPublish
         Arrays.stream(SUPPORTED_VERSIONS).forEach(version ->
                 MessageTypesRegistrator.registerType(
                         MessageKind.DataPublish,
-                        FicsMessageTypes.Snapshots.DERIVATIVES,
+                        FicsMessageTypes.Snapshots.SECURITIES,
                         version,
-                        FicsSnapshotDerivativeDataPublish.class,
-                        FicsSnapshotDerivativeDataPublishBody.class
+                        FicsSnapshotSecurityDataPublish.class,
+                        FicsSnapshotSecurityDataPublishBody.class
                 )
         );
     }
 
     @JsonCreator
-    public FicsSnapshotDerivativeDataPublish(
+    public FicsSnapshotSecurityDataPublish(
             @JsonProperty("header") @NotNull final DataPublishHeader header,
-            @JsonProperty("body") @NotNull final FicsSnapshotDerivativeDataPublish.FicsSnapshotDerivativeDataPublishBody body,
+            @JsonProperty("body") @NotNull final FicsSnapshotSecurityDataPublish.FicsSnapshotSecurityDataPublishBody body,
             @JsonProperty("correlation") final @Nullable MessageCorrelation correlation
     ) {
         super(header, body, correlation);
     }
 
-    public static class FicsSnapshotDerivativeDataPublishBody extends AbstractMessageBodyDataObject<Derivative> {
+    public static class FicsSnapshotSecurityDataPublishBody extends AbstractMessageBodyDataObject<Security> {
         @JsonCreator
-        public FicsSnapshotDerivativeDataPublishBody(
-                @JsonProperty("dataObject") @NotNull final Derivative dataObject
+        public FicsSnapshotSecurityDataPublishBody(
+                @JsonProperty("dataObject") @NotNull final Security dataObject
         ) {
             super(dataObject);
         }

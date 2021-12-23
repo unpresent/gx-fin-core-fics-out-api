@@ -1,9 +1,8 @@
-package ru.gx.fin.core.fics.keyextractors;
+package ru.gx.fin.common.fics.keyextractors;
 
 import org.jetbrains.annotations.NotNull;
 import ru.gx.core.data.DataObjectKeyExtractor;
-import ru.gx.fin.core.fics.out.Currency;
-import ru.gx.fin.core.fics.out.Security;
+import ru.gx.fin.common.fics.out.Security;
 
 @SuppressWarnings("unused")
 public class SecurityKeyExtractor implements DataObjectKeyExtractor<Security> {

@@ -1,4 +1,4 @@
-package ru.gx.fin.core.fics.config;
+package ru.gx.fin.common.fics.config;
 
 @SuppressWarnings("unused")
 public abstract class FicsMessageTypes {

@@ -1,12 +1,11 @@
-package ru.gx.fin.core.fics.channels;
+package ru.gx.fin.common.fics.channels;
 
 import ru.gx.core.channels.AbstractChannelApiDescriptor;
 import ru.gx.core.channels.SerializeMode;
 import ru.gx.core.messaging.MessageKind;
-import ru.gx.fin.core.fics.config.FicsChannelNames;
-import ru.gx.fin.core.fics.config.FicsMessageTypes;
-import ru.gx.fin.core.fics.messages.FicsSnapshotDerivativeDataPublish;
-import ru.gx.fin.core.fics.messages.FicsSnapshotSecurityDataPublish;
+import ru.gx.fin.common.fics.config.FicsChannelNames;
+import ru.gx.fin.common.fics.config.FicsMessageTypes;
+import ru.gx.fin.common.fics.messages.FicsSnapshotDerivativeDataPublish;
 
 @SuppressWarnings("unused")
 public class FicsSnapshotDerivativeDataPublishChannelApiV1

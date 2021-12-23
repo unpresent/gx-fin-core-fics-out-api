@@ -1,6 +1,8 @@
-package ru.gx.fin.core.fics.out;
+package ru.gx.fin.common.fics.out;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,42 +10,32 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.gx.fin.common.dris.out.InstrumentType;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
-/**
- * Производный ФИ
- */
 @Getter
 @Setter
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Derivative extends AbstractInstrument {
-    /**
-     * Базовый инструмент (на который этот дериватив)
-     */
-    // @JsonIdentityReference(alwaysAsId = true)
-    private final String baseInstrument;
+public class Security extends AbstractInstrument {
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    /**
+     * Код ISIN
+     */
     @Nullable
-    private final LocalDate expireDate;
+    private final String codeIsin;
 
     @JsonCreator
-    public Derivative(
+    public Security(
             @JsonProperty("guid") @NotNull final UUID guid,
             @JsonProperty("type") @NotNull final String type,
             @JsonProperty("internalShortName") @Nullable final String internalShortName,
             @JsonProperty("internalFullName") @Nullable final String internalFullName,
-            @JsonProperty("baseInstrument") @Nullable final String baseInstrument,
-            @JsonProperty("expireDate") @Nullable final LocalDate expireDate
+            @JsonProperty("codeIsin") @Nullable String codeIsin
     ) {
         super(guid, type, internalShortName, internalFullName);
-        this.baseInstrument = baseInstrument;
-        this.expireDate = expireDate;
+        this.codeIsin = codeIsin;
     }
 }

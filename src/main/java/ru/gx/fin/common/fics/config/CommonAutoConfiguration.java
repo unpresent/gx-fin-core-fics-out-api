@@ -1,19 +1,19 @@
-package ru.gx.fin.core.fics.config;
+package ru.gx.fin.common.fics.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.gx.fin.core.fics.channels.FicsSnapshotCurrencyDataPublishChannelApiV1;
-import ru.gx.fin.core.fics.channels.FicsSnapshotDerivativeDataPublishChannelApiV1;
-import ru.gx.fin.core.fics.channels.FicsSnapshotSecurityDataPublishChannelApiV1;
-import ru.gx.fin.core.fics.keyextractors.CurrencyKeyExtractor;
-import ru.gx.fin.core.fics.keyextractors.DerivativeKeyExtractor;
-import ru.gx.fin.core.fics.keyextractors.SecurityKeyExtractor;
-import ru.gx.fin.core.fics.messages.FicsSnapshotCurrencyDataPublish;
-import ru.gx.fin.core.fics.messages.FicsSnapshotDerivativeDataPublish;
-import ru.gx.fin.core.fics.messages.FicsSnapshotSecurityDataPublish;
+import ru.gx.fin.common.fics.channels.FicsSnapshotCurrencyDataPublishChannelApiV1;
+import ru.gx.fin.common.fics.channels.FicsSnapshotDerivativeDataPublishChannelApiV1;
+import ru.gx.fin.common.fics.channels.FicsSnapshotSecurityDataPublishChannelApiV1;
+import ru.gx.fin.common.fics.keyextractors.CurrencyKeyExtractor;
+import ru.gx.fin.common.fics.messages.FicsSnapshotCurrencyDataPublish;
+import ru.gx.fin.common.fics.messages.FicsSnapshotDerivativeDataPublish;
+import ru.gx.fin.common.fics.messages.FicsSnapshotSecurityDataPublish;
+import ru.gx.fin.common.fics.keyextractors.DerivativeKeyExtractor;
+import ru.gx.fin.common.fics.keyextractors.SecurityKeyExtractor;
 
 @Configuration
 @EnableConfigurationProperties(ConfigurationPropertiesServiceChannelsApi.class)

@@ -1,4 +1,4 @@
-package ru.gx.fin.core.fics.out;
+package ru.gx.fin.common.fics.out;
 
 import ru.gx.core.data.AbstractDataPackage;
 

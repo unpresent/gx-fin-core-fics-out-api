@@ -1,14 +1,12 @@
-package ru.gx.fin.core.fics.messages;
+package ru.gx.fin.common.fics.messages;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.gx.core.messaging.*;
-import ru.gx.fin.common.dris.config.DrisMessageTypes;
-import ru.gx.fin.common.dris.out.InstrumentType;
-import ru.gx.fin.core.fics.config.FicsMessageTypes;
-import ru.gx.fin.core.fics.out.Currency;
+import ru.gx.fin.common.fics.config.FicsMessageTypes;
+import ru.gx.fin.common.fics.out.Currency;
 
 import java.util.Arrays;
 
