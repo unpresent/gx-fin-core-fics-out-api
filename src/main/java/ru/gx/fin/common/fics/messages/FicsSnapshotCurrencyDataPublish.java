@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 @SuppressWarnings("unused")
 public class FicsSnapshotCurrencyDataPublish
-        extends AbstractDataPublish<FicsSnapshotCurrencyDataPublish.FicsSnapshotCurrencyDataPublishBody> {
+        extends AbstractMessage<FicsSnapshotCurrencyDataPublish.FicsSnapshotCurrencyDataPublishBody> {
     public static final int V1 = 1;
     public static final int[] SUPPORTED_VERSIONS = {V1};
 
@@ -36,7 +36,7 @@ public class FicsSnapshotCurrencyDataPublish
 
     @JsonCreator
     public FicsSnapshotCurrencyDataPublish(
-            @JsonProperty("header") @NotNull final DataPublishHeader header,
+            @JsonProperty("header") @NotNull final StandardMessageHeader header,
             @JsonProperty("body") @NotNull final FicsSnapshotCurrencyDataPublish.FicsSnapshotCurrencyDataPublishBody body,
             @JsonProperty("correlation") final @Nullable MessageCorrelation correlation
     ) {

@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 @SuppressWarnings("unused")
 public class FicsSnapshotDerivativeDataPublish
-        extends AbstractDataPublish<FicsSnapshotDerivativeDataPublish.FicsSnapshotDerivativeDataPublishBody> {
+        extends AbstractMessage<FicsSnapshotDerivativeDataPublish.FicsSnapshotDerivativeDataPublishBody> {
     public static final int V1 = 1;
     public static final int[] SUPPORTED_VERSIONS = {V1};
 
@@ -36,7 +36,7 @@ public class FicsSnapshotDerivativeDataPublish
 
     @JsonCreator
     public FicsSnapshotDerivativeDataPublish(
-            @JsonProperty("header") @NotNull final DataPublishHeader header,
+            @JsonProperty("header") @NotNull final StandardMessageHeader header,
             @JsonProperty("body") @NotNull final FicsSnapshotDerivativeDataPublish.FicsSnapshotDerivativeDataPublishBody body,
             @JsonProperty("correlation") final @Nullable MessageCorrelation correlation
     ) {
