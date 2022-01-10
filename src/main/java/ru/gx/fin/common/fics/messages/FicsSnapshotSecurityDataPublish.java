@@ -2,6 +2,7 @@ package ru.gx.fin.common.fics.messages;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.gx.core.messaging.*;
@@ -11,6 +12,7 @@ import ru.gx.fin.common.fics.out.Security;
 import java.util.Arrays;
 
 @SuppressWarnings("unused")
+@ToString(callSuper = true)
 public class FicsSnapshotSecurityDataPublish
         extends AbstractMessage<FicsSnapshotSecurityDataPublish.FicsSnapshotSecurityDataPublishBody> {
     public static final int V1 = 1;
